@@ -13,14 +13,13 @@
 -(id)init {
 	if (self = [super initWithNibName:@"View" bundle:nil]) {
 		self.data = [NSMutableArray array];
-		for (int i = 0; i < 10; i++) {
-			Category *category = [Category createInstance];
-			category.name = [NSString stringWithFormat:@"%d", i];
-			[DATABASE_MANAGER saveContext];
-			[self.data addObject:category];
-		}
 	}
 	return self;
+}
+
+- (void)reload {
+	self.data = [Category getAll];
+	[self.tableView reloadData];
 }
 
 #pragma mark - View Callbacks
@@ -29,6 +28,11 @@
     [super viewDidLoad];
 	
 	self.title = @"Browse";
+	
+	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
+																				   target:self
+																				   action:@selector(reload)];
+	[self.navigationItem setRightBarButtonItem:refreshButton];
 }
 
 #pragma mark - Table Functions
