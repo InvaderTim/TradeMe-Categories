@@ -10,7 +10,7 @@
 		90848F6816AA47CC005F4893 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6716AA47CC005F4893 /* UIKit.framework */; };
 		90848F6A16AA47CC005F4893 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6916AA47CC005F4893 /* Foundation.framework */; };
 		90848F6C16AA47CC005F4893 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6B16AA47CC005F4893 /* CoreGraphics.framework */; };
-		90848FFA16AA55B1005F4893 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FD416AA55B1005F4893 /* ViewController.m */; };
+		90848FFA16AA55B1005F4893 /* CategoriesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FD416AA55B1005F4893 /* CategoriesViewController.m */; };
 		90848FFB16AA55B1005F4893 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FD716AA55B1005F4893 /* DatabaseManager.m */; };
 		9084900416AA55B1005F4893 /* TradeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */; };
 		9084900516AA55B1005F4893 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848FF016AA55B1005F4893 /* Default-568h@2x.png */; };
@@ -46,8 +46,8 @@
 		90848F6716AA47CC005F4893 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90848F6916AA47CC005F4893 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90848F6B16AA47CC005F4893 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		90848FD316AA55B1005F4893 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		90848FD416AA55B1005F4893 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		90848FD316AA55B1005F4893 /* CategoriesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoriesViewController.h; sourceTree = "<group>"; };
+		90848FD416AA55B1005F4893 /* CategoriesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoriesViewController.m; sourceTree = "<group>"; };
 		90848FD616AA55B1005F4893 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
 		90848FD716AA55B1005F4893 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
 		90848FEC16AA55B1005F4893 /* TradeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TradeMe.xcdatamodel; sourceTree = "<group>"; };
@@ -149,8 +149,8 @@
 		90848FD216AA55B1005F4893 /* Controllers and Views */ = {
 			isa = PBXGroup;
 			children = (
-				90848FD316AA55B1005F4893 /* ViewController.h */,
-				90848FD416AA55B1005F4893 /* ViewController.m */,
+				90848FD316AA55B1005F4893 /* CategoriesViewController.h */,
+				90848FD416AA55B1005F4893 /* CategoriesViewController.m */,
 				9097525116AAB515009DF8A6 /* View.xib */,
 			);
 			path = "Controllers and Views";
@@ -365,7 +365,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90848FFA16AA55B1005F4893 /* ViewController.m in Sources */,
+				90848FFA16AA55B1005F4893 /* CategoriesViewController.m in Sources */,
 				90848FFB16AA55B1005F4893 /* DatabaseManager.m in Sources */,
 				9084900416AA55B1005F4893 /* TradeMe.xcdatamodeld in Sources */,
 				9084900916AA55B1005F4893 /* AppDelegate.m in Sources */,

@@ -6,9 +6,9 @@
 //  Copyright (c) 2013 InvaderTim. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "CategoriesViewController.h"
 
-@implementation ViewController
+@implementation CategoriesViewController
 
 -(id)init {
 	if (self = [super initWithNibName:@"View" bundle:nil]) {

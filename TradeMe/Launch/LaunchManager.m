@@ -7,7 +7,7 @@
 //
 
 #import "LaunchManager.h"
-#import "ViewController.h"
+#import "CategoriesViewController.h"
 
 @implementation LaunchManager
 
@@ -30,7 +30,7 @@ static LaunchManager *instance;
 }
 
 -(id)getLaunchController {
-	return [[ViewController alloc] init];
+	return [[CategoriesViewController alloc] init];
 }
 
 #pragma mark - Load Functions
