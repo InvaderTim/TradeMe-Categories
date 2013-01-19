@@ -45,8 +45,8 @@
 		
 		if (array && array != [NSNull null]) {
 			for (NSDictionary *subCategoryData in array) {
-				if (data[@"Number"] && data[@"Number"] != [NSNull null]) {
-					NSString *uid = data[@"Number"];
+				if (subCategoryData[@"Number"] && subCategoryData[@"Number"] != [NSNull null]) {
+					NSString *uid = subCategoryData[@"Number"];
 					
 					Category *subcategory = [Category getCategoryWithUID:uid];
 					if (!subcategory) {
