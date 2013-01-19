@@ -10,14 +10,16 @@
 		90848F6816AA47CC005F4893 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6716AA47CC005F4893 /* UIKit.framework */; };
 		90848F6A16AA47CC005F4893 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6916AA47CC005F4893 /* Foundation.framework */; };
 		90848F6C16AA47CC005F4893 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90848F6B16AA47CC005F4893 /* CoreGraphics.framework */; };
-		90848F7216AA47CC005F4893 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 90848F7016AA47CC005F4893 /* InfoPlist.strings */; };
-		90848F7416AA47CC005F4893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848F7316AA47CC005F4893 /* main.m */; };
-		90848F7816AA47CD005F4893 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848F7716AA47CD005F4893 /* AppDelegate.m */; };
-		90848F7A16AA47CD005F4893 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848F7916AA47CD005F4893 /* Default.png */; };
-		90848F7C16AA47CD005F4893 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848F7B16AA47CD005F4893 /* Default@2x.png */; };
-		90848F7E16AA47CD005F4893 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848F7D16AA47CD005F4893 /* Default-568h@2x.png */; };
-		90848F8116AA47CD005F4893 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848F8016AA47CD005F4893 /* ViewController.m */; };
-		90848F8416AA47CD005F4893 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90848F8216AA47CD005F4893 /* ViewController.xib */; };
+		90848FFA16AA55B1005F4893 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FD416AA55B1005F4893 /* ViewController.m */; };
+		90848FFB16AA55B1005F4893 /* DatabaseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FD716AA55B1005F4893 /* DatabaseManager.m */; };
+		9084900416AA55B1005F4893 /* TradeMe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */; };
+		9084900516AA55B1005F4893 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848FF016AA55B1005F4893 /* Default-568h@2x.png */; };
+		9084900616AA55B1005F4893 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848FF116AA55B1005F4893 /* Default.png */; };
+		9084900716AA55B1005F4893 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90848FF216AA55B1005F4893 /* Default@2x.png */; };
+		9084900816AA55B1005F4893 /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 90848FF316AA55B1005F4893 /* ViewController.xib */; };
+		9084900916AA55B1005F4893 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FF616AA55B1005F4893 /* AppDelegate.m */; };
+		9084900A16AA55B1005F4893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FF716AA55B1005F4893 /* main.m */; };
+		9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097521A16AA571B009DF8A6 /* CoreData.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,18 +27,21 @@
 		90848F6716AA47CC005F4893 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		90848F6916AA47CC005F4893 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		90848F6B16AA47CC005F4893 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		90848F6F16AA47CC005F4893 /* TradeMe-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TradeMe-Info.plist"; sourceTree = "<group>"; };
-		90848F7116AA47CC005F4893 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		90848F7316AA47CC005F4893 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		90848F7516AA47CC005F4893 /* TradeMe-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TradeMe-Prefix.pch"; sourceTree = "<group>"; };
-		90848F7616AA47CC005F4893 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		90848F7716AA47CD005F4893 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		90848F7916AA47CD005F4893 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		90848F7B16AA47CD005F4893 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		90848F7D16AA47CD005F4893 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		90848F7F16AA47CD005F4893 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		90848F8016AA47CD005F4893 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		90848F8316AA47CD005F4893 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
+		90848FD316AA55B1005F4893 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		90848FD416AA55B1005F4893 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		90848FD616AA55B1005F4893 /* DatabaseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseManager.h; sourceTree = "<group>"; };
+		90848FD716AA55B1005F4893 /* DatabaseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseManager.m; sourceTree = "<group>"; };
+		90848FEC16AA55B1005F4893 /* TradeMe.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TradeMe.xcdatamodel; sourceTree = "<group>"; };
+		90848FF016AA55B1005F4893 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		90848FF116AA55B1005F4893 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		90848FF216AA55B1005F4893 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		90848FF316AA55B1005F4893 /* ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ViewController.xib; sourceTree = "<group>"; };
+		90848FF516AA55B1005F4893 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		90848FF616AA55B1005F4893 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		90848FF716AA55B1005F4893 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		90848FF816AA55B1005F4893 /* TradeMe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TradeMe-Info.plist"; sourceTree = "<group>"; };
+		90848FF916AA55B1005F4893 /* TradeMe-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TradeMe-Prefix.pch"; sourceTree = "<group>"; };
+		9097521A16AA571B009DF8A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +49,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */,
 				90848F6816AA47CC005F4893 /* UIKit.framework in Frameworks */,
 				90848F6A16AA47CC005F4893 /* Foundation.framework in Frameworks */,
 				90848F6C16AA47CC005F4893 /* CoreGraphics.framework in Frameworks */,
@@ -56,7 +62,9 @@
 		90848F5816AA47CC005F4893 = {
 			isa = PBXGroup;
 			children = (
-				90848F6D16AA47CC005F4893 /* TradeMe */,
+				90848F6D16AA47CC005F4893 /* Classes */,
+				90848FED16AA55B1005F4893 /* Libraries */,
+				90848FEF16AA55B1005F4893 /* Resources */,
 				90848F6616AA47CC005F4893 /* Frameworks */,
 				90848F6416AA47CC005F4893 /* Products */,
 			);
@@ -73,6 +81,7 @@
 		90848F6616AA47CC005F4893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9097521A16AA571B009DF8A6 /* CoreData.framework */,
 				90848F6716AA47CC005F4893 /* UIKit.framework */,
 				90848F6916AA47CC005F4893 /* Foundation.framework */,
 				90848F6B16AA47CC005F4893 /* CoreGraphics.framework */,
@@ -80,31 +89,90 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		90848F6D16AA47CC005F4893 /* TradeMe */ = {
+		90848F6D16AA47CC005F4893 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				90848F7616AA47CC005F4893 /* AppDelegate.h */,
-				90848F7716AA47CD005F4893 /* AppDelegate.m */,
-				90848F7F16AA47CD005F4893 /* ViewController.h */,
-				90848F8016AA47CD005F4893 /* ViewController.m */,
-				90848F8216AA47CD005F4893 /* ViewController.xib */,
-				90848F6E16AA47CC005F4893 /* Supporting Files */,
+				90848FD216AA55B1005F4893 /* Controllers and Views */,
+				90848FD516AA55B1005F4893 /* Database */,
+				90848FEE16AA55B1005F4893 /* Networking */,
+				90848FF416AA55B1005F4893 /* Supporting Files */,
 			);
+			name = Classes;
 			path = TradeMe;
 			sourceTree = "<group>";
 		};
-		90848F6E16AA47CC005F4893 /* Supporting Files */ = {
+		90848FD216AA55B1005F4893 /* Controllers and Views */ = {
 			isa = PBXGroup;
 			children = (
-				90848F6F16AA47CC005F4893 /* TradeMe-Info.plist */,
-				90848F7016AA47CC005F4893 /* InfoPlist.strings */,
-				90848F7316AA47CC005F4893 /* main.m */,
-				90848F7516AA47CC005F4893 /* TradeMe-Prefix.pch */,
-				90848F7916AA47CD005F4893 /* Default.png */,
-				90848F7B16AA47CD005F4893 /* Default@2x.png */,
-				90848F7D16AA47CD005F4893 /* Default-568h@2x.png */,
+				90848FD316AA55B1005F4893 /* ViewController.h */,
+				90848FD416AA55B1005F4893 /* ViewController.m */,
 			);
-			name = "Supporting Files";
+			path = "Controllers and Views";
+			sourceTree = "<group>";
+		};
+		90848FD516AA55B1005F4893 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				90848FD616AA55B1005F4893 /* DatabaseManager.h */,
+				90848FD716AA55B1005F4893 /* DatabaseManager.m */,
+				90848FD816AA55B1005F4893 /* Entities */,
+				90848FE116AA55B1005F4893 /* Entity Networking */,
+				90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		90848FD816AA55B1005F4893 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		90848FE116AA55B1005F4893 /* Entity Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Entity Networking";
+			sourceTree = "<group>";
+		};
+		90848FED16AA55B1005F4893 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			path = TradeMe/Libraries;
+			sourceTree = "<group>";
+		};
+		90848FEE16AA55B1005F4893 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		90848FEF16AA55B1005F4893 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				90848FF016AA55B1005F4893 /* Default-568h@2x.png */,
+				90848FF116AA55B1005F4893 /* Default.png */,
+				90848FF216AA55B1005F4893 /* Default@2x.png */,
+				90848FF316AA55B1005F4893 /* ViewController.xib */,
+			);
+			name = Resources;
+			path = TradeMe/Resources;
+			sourceTree = "<group>";
+		};
+		90848FF416AA55B1005F4893 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				90848FF516AA55B1005F4893 /* AppDelegate.h */,
+				90848FF616AA55B1005F4893 /* AppDelegate.m */,
+				90848FF716AA55B1005F4893 /* main.m */,
+				90848FF816AA55B1005F4893 /* TradeMe-Info.plist */,
+				90848FF916AA55B1005F4893 /* TradeMe-Prefix.pch */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,11 +226,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90848F7216AA47CC005F4893 /* InfoPlist.strings in Resources */,
-				90848F7A16AA47CD005F4893 /* Default.png in Resources */,
-				90848F7C16AA47CD005F4893 /* Default@2x.png in Resources */,
-				90848F7E16AA47CD005F4893 /* Default-568h@2x.png in Resources */,
-				90848F8416AA47CD005F4893 /* ViewController.xib in Resources */,
+				9084900516AA55B1005F4893 /* Default-568h@2x.png in Resources */,
+				9084900616AA55B1005F4893 /* Default.png in Resources */,
+				9084900716AA55B1005F4893 /* Default@2x.png in Resources */,
+				9084900816AA55B1005F4893 /* ViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,32 +240,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				90848F7416AA47CC005F4893 /* main.m in Sources */,
-				90848F7816AA47CD005F4893 /* AppDelegate.m in Sources */,
-				90848F8116AA47CD005F4893 /* ViewController.m in Sources */,
+				90848FFA16AA55B1005F4893 /* ViewController.m in Sources */,
+				90848FFB16AA55B1005F4893 /* DatabaseManager.m in Sources */,
+				9084900416AA55B1005F4893 /* TradeMe.xcdatamodeld in Sources */,
+				9084900916AA55B1005F4893 /* AppDelegate.m in Sources */,
+				9084900A16AA55B1005F4893 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		90848F7016AA47CC005F4893 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90848F7116AA47CC005F4893 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		90848F8216AA47CD005F4893 /* ViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				90848F8316AA47CD005F4893 /* en */,
-			);
-			name = ViewController.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		90848F8516AA47CD005F4893 /* Debug */ = {
@@ -255,8 +305,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TradeMe/TradeMe-Prefix.pch";
-				INFOPLIST_FILE = "TradeMe/TradeMe-Info.plist";
+				GCC_PREFIX_HEADER = "TradeMe/Supporting Files/TradeMe-Prefix.pch";
+				INFOPLIST_FILE = "TradeMe/Supporting Files/TradeMe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -266,8 +316,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "TradeMe/TradeMe-Prefix.pch";
-				INFOPLIST_FILE = "TradeMe/TradeMe-Info.plist";
+				GCC_PREFIX_HEADER = "TradeMe/Supporting Files/TradeMe-Prefix.pch";
+				INFOPLIST_FILE = "TradeMe/Supporting Files/TradeMe-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -292,8 +342,22 @@
 				90848F8916AA47CD005F4893 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				90848FEC16AA55B1005F4893 /* TradeMe.xcdatamodel */,
+			);
+			currentVersion = 90848FEC16AA55B1005F4893 /* TradeMe.xcdatamodel */;
+			path = TradeMe.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 90848F5A16AA47CC005F4893 /* Project object */;
 }
