@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1811" systemVersion="12C60" minimumToolsVersion="Xcode 4.1" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Category" representedClassName="Category" syncable="YES">
+        <attribute name="depthNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="hasClassifiedsNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="hasLegalNoticeNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isRestrictedNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
@@ -13,6 +14,6 @@
         <relationship name="subCategoriesSet" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentCategory" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="160" positionY="192" width="128" height="193"/>
+        <element name="Category" positionX="160" positionY="192" width="128" height="208"/>
     </elements>
 </model>

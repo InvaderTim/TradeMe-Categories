@@ -55,11 +55,13 @@
 					}
 					
 					subcategory.parentCategory = self;
+					subcategory.depth = self.depth + 1;
 					[subcategory setWithNetworkingData:subCategoryData];
 				}
 			}
 		}
 	}
+	[DATABASE_MANAGER saveContext];
 }
 
 @end

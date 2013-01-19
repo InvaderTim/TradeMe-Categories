@@ -14,6 +14,7 @@
 @property (nonatomic, retain) NSString * urlPath;
 @property (nonatomic, retain) NSString * uid;
 
+@property NSInteger depth; // Front-end to depthNumber
 @property NSInteger itemCount; // Front-end to itemCountNumber
 @property BOOL hasClassifieds; // Front-end to hasClassifiedsNumber
 @property BOOL hasLegalNotice; // Front-end to hasLegalNoticeNumber
@@ -26,6 +27,7 @@
 
 +(id)createInstance;
 +(id)getCategoryWithUID:(NSString*)uid;
++(NSMutableArray*)getAll;
 
 -(void)getLegalNotice;
 
