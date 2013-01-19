@@ -39,7 +39,29 @@
 		909752BD16AAE969009DF8A6 /* barbutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909752B516AAE968009DF8A6 /* barbutton@2x.png */; };
 		909752BE16AAE969009DF8A6 /* barbuttonpressed.png in Resources */ = {isa = PBXBuildFile; fileRef = 909752B616AAE968009DF8A6 /* barbuttonpressed.png */; };
 		909752BF16AAE969009DF8A6 /* barbuttonpressed@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 909752B716AAE969009DF8A6 /* barbuttonpressed@2x.png */; };
+		9097533216AB03CC009DF8A6 /* NetworkingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097533116AB03CC009DF8A6 /* NetworkingManager.m */; };
+		9097533416AB1237009DF8A6 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097533316AB1237009DF8A6 /* MobileCoreServices.framework */; };
+		9097533616AB123E009DF8A6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097533516AB123E009DF8A6 /* SystemConfiguration.framework */; };
+		9097537B16AB18A9009DF8A6 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097537A16AB18A1009DF8A6 /* libAFNetworking.a */; };
+		909753C416AB1D03009DF8A6 /* TradeMeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 909753C316AB1D03009DF8A6 /* TradeMeClient.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9097537916AB18A1009DF8A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E427C0AB15F6DEA600E5518E;
+			remoteInfo = AFNetworking;
+		};
+		9097537C16AB18AE009DF8A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = E427C08E15F6DEA600E5518E;
+			remoteInfo = AFNetworking;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		90848F6316AA47CC005F4893 /* TradeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TradeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +108,13 @@
 		909752B516AAE968009DF8A6 /* barbutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbutton@2x.png"; sourceTree = "<group>"; };
 		909752B616AAE968009DF8A6 /* barbuttonpressed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barbuttonpressed.png; sourceTree = "<group>"; };
 		909752B716AAE969009DF8A6 /* barbuttonpressed@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbuttonpressed@2x.png"; sourceTree = "<group>"; };
+		9097533016AB03CC009DF8A6 /* NetworkingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkingManager.h; sourceTree = "<group>"; };
+		9097533116AB03CC009DF8A6 /* NetworkingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkingManager.m; sourceTree = "<group>"; };
+		9097533316AB1237009DF8A6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		9097533516AB123E009DF8A6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AFNetworking.xcodeproj; sourceTree = "<group>"; };
+		909753C216AB1D03009DF8A6 /* TradeMeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeMeClient.h; sourceTree = "<group>"; };
+		909753C316AB1D03009DF8A6 /* TradeMeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeMeClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +122,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9097537B16AB18A9009DF8A6 /* libAFNetworking.a in Frameworks */,
+				9097533616AB123E009DF8A6 /* SystemConfiguration.framework in Frameworks */,
+				9097533416AB1237009DF8A6 /* MobileCoreServices.framework in Frameworks */,
 				9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */,
 				90848F6816AA47CC005F4893 /* UIKit.framework in Frameworks */,
 				90848F6A16AA47CC005F4893 /* Foundation.framework in Frameworks */,
@@ -125,6 +157,8 @@
 		90848F6616AA47CC005F4893 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9097533516AB123E009DF8A6 /* SystemConfiguration.framework */,
+				9097533316AB1237009DF8A6 /* MobileCoreServices.framework */,
 				9097521A16AA571B009DF8A6 /* CoreData.framework */,
 				90848F6716AA47CC005F4893 /* UIKit.framework */,
 				90848F6916AA47CC005F4893 /* Foundation.framework */,
@@ -190,6 +224,7 @@
 		90848FED16AA55B1005F4893 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				9097531316AB0369009DF8A6 /* AFNetworking */,
 			);
 			name = Libraries;
 			path = TradeMe/Libraries;
@@ -198,6 +233,10 @@
 		90848FEE16AA55B1005F4893 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9097533016AB03CC009DF8A6 /* NetworkingManager.h */,
+				9097533116AB03CC009DF8A6 /* NetworkingManager.m */,
+				909753C216AB1D03009DF8A6 /* TradeMeClient.h */,
+				909753C316AB1D03009DF8A6 /* TradeMeClient.m */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -284,6 +323,22 @@
 			name = "Navigation Bar";
 			sourceTree = "<group>";
 		};
+		9097531316AB0369009DF8A6 /* AFNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */,
+			);
+			path = AFNetworking;
+			sourceTree = "<group>";
+		};
+		9097537316AB18A1009DF8A6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9097537A16AB18A1009DF8A6 /* libAFNetworking.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -298,6 +353,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9097537D16AB18AE009DF8A6 /* PBXTargetDependency */,
 			);
 			name = TradeMe;
 			productName = TradeMe;
@@ -323,12 +379,28 @@
 			mainGroup = 90848F5816AA47CC005F4893;
 			productRefGroup = 90848F6416AA47CC005F4893 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 9097537316AB18A1009DF8A6 /* Products */;
+					ProjectRef = 9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				90848F6216AA47CC005F4893 /* TradeMe */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		9097537A16AB18A1009DF8A6 /* libAFNetworking.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAFNetworking.a;
+			remoteRef = 9097537916AB18A1009DF8A6 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		90848F6116AA47CC005F4893 /* Resources */ = {
@@ -373,10 +445,20 @@
 				9097521E16AA8080009DF8A6 /* Category.m in Sources */,
 				9097522316AA995A009DF8A6 /* Category+Networking.m in Sources */,
 				9097528916AAC5F8009DF8A6 /* LaunchManager.m in Sources */,
+				9097533216AB03CC009DF8A6 /* NetworkingManager.m in Sources */,
+				909753C416AB1D03009DF8A6 /* TradeMeClient.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9097537D16AB18AE009DF8A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AFNetworking;
+			targetProxy = 9097537C16AB18AE009DF8A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		90848F8516AA47CD005F4893 /* Debug */ = {
@@ -432,9 +514,16 @@
 		90848F8816AA47CD005F4893 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TradeMe/Supporting Files/TradeMe-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/TradeMe/Libraries/\"/**";
 				INFOPLIST_FILE = "TradeMe/Supporting Files/TradeMe-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TradeMe/Libraries\"",
+					"\"$(SRCROOT)/TradeMe/Libraries/AFNetworking\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -443,9 +532,16 @@
 		90848F8916AA47CD005F4893 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TradeMe/Supporting Files/TradeMe-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/TradeMe/Libraries/\"/**";
 				INFOPLIST_FILE = "TradeMe/Supporting Files/TradeMe-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/TradeMe/Libraries\"",
+					"\"$(SRCROOT)/TradeMe/Libraries/AFNetworking\"",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

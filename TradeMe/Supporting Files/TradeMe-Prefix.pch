@@ -13,11 +13,18 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 	#import <CoreData/CoreData.h>
+	#import <MobileCoreServices/MobileCoreServices.h>
+	#import <SystemConfiguration/SystemConfiguration.h>
+
+	// Included Libraries
+	#import "AFNetworking.h"
 
 	// Singletons
 	#import "DatabaseManager.h"
+	#import "NetworkingManager.h"
 	#import "LaunchManager.h"
 
+	// Misc.
 	#import "Entities.h"
 	#import "Constants.h"
 #endif

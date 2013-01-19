@@ -27,6 +27,7 @@ static LaunchManager *instance;
 
 -(void)preload {
 	[self applyRestyling];
+	[NETWORKING_MANAGER startSync];
 }
 
 -(id)getLaunchController {
