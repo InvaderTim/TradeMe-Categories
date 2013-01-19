@@ -93,9 +93,8 @@ static DatabaseManager *instance;
     NSError *error = nil;
 	NSDictionary *options = nil;
 	// Perform automatic lightweight migrations
-    options = [NSDictionary dictionaryWithObjectsAndKeys:
-                            [NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, 
-                            [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    options = @{NSMigratePersistentStoresAutomaticallyOption: @YES, 
+                            NSInferMappingModelAutomaticallyOption: @YES};
     __persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
     if (![__persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
 		[self handleError:error];

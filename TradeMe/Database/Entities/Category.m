@@ -50,14 +50,11 @@
 @dynamic subCategoriesSet;
 @dynamic parentCategory;
 
-+(NSEntityDescription*)entityDescription {
-	return [NSEntityDescription entityForName:@"Category" inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
-}
-
 #pragma mark - Initialisation
 
 +(id)createInstance {
-	Category *category = (Category*)[Category entityDescription];
+	Category *category = (Category*)[NSEntityDescription insertNewObjectForEntityForName:@"Category"
+																  inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
 	
 	return category;
 }
@@ -67,7 +64,6 @@
 +(id)getCategoryWithUID:(NSString*)uid {
 	NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"Category"];
 	
-	[request setEntity:[Category entityDescription]];
 	[request setPredicate:[NSPredicate predicateWithFormat:@"uid == %@",uid]];
 	[request setFetchBatchSize:1];
 	
