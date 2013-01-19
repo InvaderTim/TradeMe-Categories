@@ -103,6 +103,10 @@
 	self.hasClassifiedsNumber = @(hasClassifieds);
 }
 
+-(void)setHasLegalNotice:(BOOL)hasLegalNotice {
+	self.hasLegalNoticeNumber = @(hasLegalNotice);
+}
+
 -(void)setIsRestricted:(BOOL)isRestricted {
 	self.isRestrictedNumber = @(isRestricted);
 }
@@ -115,6 +119,10 @@
 
 -(BOOL)hasClassifieds {
 	return [self.hasClassifiedsNumber boolValue];
+}
+
+-(BOOL)hasLegalNotice {
+	return [self.hasLegalNoticeNumber boolValue];
 }
 
 -(BOOL)isRestricted {
