@@ -20,6 +20,7 @@
 		9084900916AA55B1005F4893 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FF616AA55B1005F4893 /* AppDelegate.m */; };
 		9084900A16AA55B1005F4893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FF716AA55B1005F4893 /* main.m */; };
 		9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097521A16AA571B009DF8A6 /* CoreData.framework */; };
+		9097521E16AA8080009DF8A6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097521D16AA8080009DF8A6 /* Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,10 @@
 		90848FF816AA55B1005F4893 /* TradeMe-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "TradeMe-Info.plist"; sourceTree = "<group>"; };
 		90848FF916AA55B1005F4893 /* TradeMe-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TradeMe-Prefix.pch"; sourceTree = "<group>"; };
 		9097521A16AA571B009DF8A6 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9097521C16AA807F009DF8A6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
+		9097521D16AA8080009DF8A6 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
+		9097521F16AA9864009DF8A6 /* Entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
+		9097522416AA9C66009DF8A6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +120,9 @@
 			children = (
 				90848FD616AA55B1005F4893 /* DatabaseManager.h */,
 				90848FD716AA55B1005F4893 /* DatabaseManager.m */,
+				90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */,
 				90848FD816AA55B1005F4893 /* Entities */,
 				90848FE116AA55B1005F4893 /* Entity Networking */,
-				90848FEB16AA55B1005F4893 /* TradeMe.xcdatamodeld */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -125,6 +130,8 @@
 		90848FD816AA55B1005F4893 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				9097521C16AA807F009DF8A6 /* Category.h */,
+				9097521D16AA8080009DF8A6 /* Category.m */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -171,6 +178,8 @@
 				90848FF716AA55B1005F4893 /* main.m */,
 				90848FF816AA55B1005F4893 /* TradeMe-Info.plist */,
 				90848FF916AA55B1005F4893 /* TradeMe-Prefix.pch */,
+				9097521F16AA9864009DF8A6 /* Entities.h */,
+				9097522416AA9C66009DF8A6 /* Constants.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -245,6 +254,7 @@
 				9084900416AA55B1005F4893 /* TradeMe.xcdatamodeld in Sources */,
 				9084900916AA55B1005F4893 /* AppDelegate.m in Sources */,
 				9084900A16AA55B1005F4893 /* main.m in Sources */,
+				9097521E16AA8080009DF8A6 /* Category.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

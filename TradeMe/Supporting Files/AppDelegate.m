@@ -18,7 +18,7 @@
 	self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
 	
-	[DatabaseManager getInstance];
+	DATABASE_MANAGER;
 	
     return YES;
 }

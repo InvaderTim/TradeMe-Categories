@@ -16,4 +16,7 @@
 
 	// Singletons
 	#import "DatabaseManager.h"
+
+	#import "Entities.h"
+	#import "Constants.h"
 #endif
