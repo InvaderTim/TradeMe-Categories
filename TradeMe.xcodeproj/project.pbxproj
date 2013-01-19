@@ -21,6 +21,7 @@
 		9084900A16AA55B1005F4893 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 90848FF716AA55B1005F4893 /* main.m */; };
 		9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097521A16AA571B009DF8A6 /* CoreData.framework */; };
 		9097521E16AA8080009DF8A6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097521D16AA8080009DF8A6 /* Category.m */; };
+		9097522316AA995A009DF8A6 /* Category+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097522216AA995A009DF8A6 /* Category+Networking.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,9 @@
 		9097521C16AA807F009DF8A6 /* Category.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Category.h; sourceTree = "<group>"; };
 		9097521D16AA8080009DF8A6 /* Category.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Category.m; sourceTree = "<group>"; };
 		9097521F16AA9864009DF8A6 /* Entities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Entities.h; sourceTree = "<group>"; };
+		9097522016AA995A009DF8A6 /* EntityNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EntityNetworking.h; sourceTree = "<group>"; };
+		9097522116AA995A009DF8A6 /* Category+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+Networking.h"; sourceTree = "<group>"; };
+		9097522216AA995A009DF8A6 /* Category+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+Networking.m"; sourceTree = "<group>"; };
 		9097522416AA9C66009DF8A6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,6 +143,9 @@
 		90848FE116AA55B1005F4893 /* Entity Networking */ = {
 			isa = PBXGroup;
 			children = (
+				9097522016AA995A009DF8A6 /* EntityNetworking.h */,
+				9097522116AA995A009DF8A6 /* Category+Networking.h */,
+				9097522216AA995A009DF8A6 /* Category+Networking.m */,
 			);
 			path = "Entity Networking";
 			sourceTree = "<group>";
@@ -255,6 +262,7 @@
 				9084900916AA55B1005F4893 /* AppDelegate.m in Sources */,
 				9084900A16AA55B1005F4893 /* main.m in Sources */,
 				9097521E16AA8080009DF8A6 /* Category.m in Sources */,
+				9097522316AA995A009DF8A6 /* Category+Networking.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
