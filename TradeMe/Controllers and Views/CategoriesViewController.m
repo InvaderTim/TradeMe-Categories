@@ -96,7 +96,7 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSString *cellIdentifier = [NSString stringWithFormat:@"CategoryCell%d",indexPath.row];
+	static NSString *cellIdentifier = @"CategoryCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	
 	if (indexPath.row >= 0 && indexPath.row < self.data.count) {
