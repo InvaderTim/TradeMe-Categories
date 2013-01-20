@@ -47,12 +47,25 @@
 	
 }
 
+-(void)browse {
+	self.selectedCategory = self.parentCategory;
+	[self displaySearch];
+}
+
 #pragma mark - View Callbacks
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
 	self.title = self.parentCategory ? self.parentCategory.name : NSLocalizedString(@"BROWSE", @"");
+	
+	if (self.parentCategory) {
+		UIBarButtonItem *browseButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"BROWSE", @"")
+																		 style:UIBarButtonItemStylePlain
+																		target:self
+																		action:@selector(browse)];
+		[self.navigationItem setRightBarButtonItem:browseButton];
+	}
 }
 
 - (void)viewWillAppear:(BOOL)animated {
