@@ -16,7 +16,7 @@
 
 -(void)setWithNetworkingData:(NSDictionary *)data {
 	if (data[@"Name"] && data[@"Name"] != [NSNull null]) {
-		self.name = data[@"Name"];
+		self.name = [data[@"Name"] capitalizedString];
 	}
 	if (data[@"Path"] && data[@"Path"] != [NSNull null]) {
 		self.urlPath = data[@"Path"];
