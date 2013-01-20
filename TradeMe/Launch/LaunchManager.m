@@ -39,9 +39,7 @@ static LaunchManager *instance;
 	NSMutableDictionary *navigationTextAttributes = [NSMutableDictionary dictionary];
 	NSMutableDictionary *buttonTextAttributes = [NSMutableDictionary dictionary];
 	NSMutableDictionary *pressedButtonTextAttributes = [NSMutableDictionary dictionary];
-	
-//	UIColor *
-	
+		
 	UIImage *navigationBackground = [UIImage imageNamed:@"titlebg"];
 	UIImage *backBackground = [[UIImage imageNamed:@"backbutton"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 22, 0, 5)];
 	UIImage *backBackgroundPressed = [[UIImage imageNamed:@"backbuttonpressed"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 22, 0, 5)];
