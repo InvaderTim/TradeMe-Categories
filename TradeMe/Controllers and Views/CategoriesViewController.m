@@ -50,8 +50,8 @@
 - (void)viewWillAppear:(BOOL)animated {
 	if (!self.data || self.data.count == 0) {
 		self.loadingView.hidden = NO;
-		[NETWORKING_MANAGER startSync];
 	}
+	[NETWORKING_MANAGER startSync];
 	
 	[self reload];
 }
