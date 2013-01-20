@@ -115,6 +115,7 @@
 		9097537216AB18A1009DF8A6 /* AFNetworking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = AFNetworking.xcodeproj; sourceTree = "<group>"; };
 		909753C216AB1D03009DF8A6 /* TradeMeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeMeClient.h; sourceTree = "<group>"; };
 		909753C316AB1D03009DF8A6 /* TradeMeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeMeClient.m; sourceTree = "<group>"; };
+		909753D016ABC655009DF8A6 /* Delegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Delegates.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +261,7 @@
 				90848FF916AA55B1005F4893 /* TradeMe-Prefix.pch */,
 				9097521F16AA9864009DF8A6 /* Entities.h */,
 				9097522416AA9C66009DF8A6 /* Constants.h */,
+				909753D016ABC655009DF8A6 /* Delegates.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";

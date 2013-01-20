@@ -10,8 +10,10 @@
 
 @interface NetworkingManager : NSObject
 
+@property (nonatomic, retain) NSMutableSet *delegates;
+
 +(NetworkingManager *)getInstance;
 
-- (void)startSync;
+-(void)startSync;
 
 @end

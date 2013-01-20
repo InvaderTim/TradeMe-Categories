@@ -168,7 +168,7 @@
 
 -(void)loadCategories {
 	NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES];
-	self.subCategories = [self.subCategoriesSet sortedArrayUsingDescriptors:@[sorter]].mutableCopy;
+	[self.subCategories setArray:[self.subCategoriesSet sortedArrayUsingDescriptors:@[sorter]]];
 }
 
 -(void)addSubCategory:(Category*)category {

@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CategoriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate>
+@interface CategoriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NetworkingDelegate>
 
 @property (nonatomic, retain) NSMutableArray *data;
+@property (nonatomic, retain) IBOutlet UIView *loadingView;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end

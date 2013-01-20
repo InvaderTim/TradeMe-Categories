@@ -12,13 +12,30 @@
 
 -(id)init {
 	if (self = [super initWithNibName:@"View" bundle:nil]) {
-		self.data = [NSMutableArray array];
+		self.data = [Category getAll];
+		[NETWORKING_MANAGER.delegates addObject:self];
 	}
 	return self;
 }
 
-- (void)reload {
-	self.data = [Category getAll];
+- (void)syncCompleted:(NSArray *)categories {
+	self.loadingView.hidden = YES;
+	[self.data setArray:categories];
+	[self reload];
+}
+
+- (void)stripCategories {
+	for (Category *category in self.data.mutableCopy) {
+		if ([category.name isEqualToString:@"Trade Me Motors"] ||
+			[category.name isEqualToString:@"Trade Me Property"] ||
+			[category.name isEqualToString:@"Trade Me Jobs"]) {
+			[self.data removeObject:category];
+		}
+	}
+}
+
+-(void)reload {
+	[self stripCategories];
 	[self.tableView reloadData];
 }
 
@@ -28,11 +45,15 @@
     [super viewDidLoad];
 	
 	self.title = @"Browse";
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+	if (!self.data || self.data.count == 0) {
+		self.loadingView.hidden = NO;
+		[NETWORKING_MANAGER startSync];
+	}
 	
-	UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-																				   target:self
-																				   action:@selector(reload)];
-	[self.navigationItem setRightBarButtonItem:refreshButton];
+	[self reload];
 }
 
 #pragma mark - Table Functions

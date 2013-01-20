@@ -23,15 +23,33 @@ static NetworkingManager *instance;
 	return instance;
 }
 
-- (id)init{
+- (id)init {
     if (self = [super init]) {
-        // Something!
+        self.delegates = [NSMutableSet set];
     }
     return self;
 }
 
+- (void)notifySyncDelegates:(NSArray*)data {
+	for (id delegate in self.delegates) {
+		if ([delegate respondsToSelector:@selector(syncCompleted:)]) {
+			[delegate syncCompleted:data];
+		}
+	}
+}
+
+- (void)notifySearchDelegates:(NSArray*)data {
+	for (id delegate in self.delegates) {
+		if ([delegate respondsToSelector:@selector(searchCompleted:)]) {
+			[delegate searchCompleted:data];
+		}
+	}
+}
+
+#pragma mark - Category synchronization
+
 - (void)startSync {
-	__block NSArray *existingCategories = [Category getAll];
+	__block NSMutableArray *existingCategories = [Category getAll];
 	
 	[[TradeMeClient getInstance] getPath:@"Categories.json"
 							  parameters:nil
@@ -41,11 +59,9 @@ static NetworkingManager *instance;
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 									
 								 }];
-	
-	[DATABASE_MANAGER saveContext];
 }
 
-- (void)handleCategories:(id)responseObject exisitingCategories:(NSArray*)exisitingCategories {
+- (void)handleCategories:(id)responseObject exisitingCategories:(NSMutableArray*)exisitingCategories {
 	if (responseObject && ![responseObject isEqual:[NSNull null]]) {
 		id categories = responseObject[@"Subcategories"];
 		
@@ -63,6 +79,7 @@ static NetworkingManager *instance;
 					}
 					if (!category) {
 						category = [Category createInstance];
+						[exisitingCategories addObject:category];
 					}
 					
 					/* Set category with data recursively */
@@ -72,6 +89,9 @@ static NetworkingManager *instance;
 			}
 		}
 	}
+	
+	[self notifySyncDelegates:exisitingCategories];
+	[DATABASE_MANAGER saveContext];
 }
 
 @end

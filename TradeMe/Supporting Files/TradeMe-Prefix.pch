@@ -27,4 +27,5 @@
 	// Misc.
 	#import "Entities.h"
 	#import "Constants.h"
+	#import "Delegates.h"
 #endif
