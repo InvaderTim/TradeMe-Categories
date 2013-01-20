@@ -58,6 +58,7 @@
 						subcategory = [Category createInstance];
 					}
 					
+					[self addSubCategoriesObject:subcategory];
 					subcategory.parentCategory = self;
 					subcategory.depth = self.depth + 1;
 					[subcategory setWithNetworkingData:subCategoryData];

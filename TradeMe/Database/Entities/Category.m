@@ -12,23 +12,13 @@
 
 @interface Category ()
 
+@property (nonatomic, retain) NSNumber *orderNumber; // Back-end to depth
 @property (nonatomic, retain) NSNumber *depthNumber; // Back-end to depth
 @property (nonatomic, retain) NSNumber *itemCountNumber; // Back-end to itemCount
 @property (nonatomic, retain) NSNumber *hasClassifiedsNumber; // Back-end to hasClassifieds
 @property (nonatomic, retain) NSNumber *hasLegalNoticeNumber; // Back-end to hasLegaLNotice
 
 @property (nonatomic, retain) NSNumber *isRestrictedNumber; // Back-end to isRestricted
-
-@property (nonatomic, retain) NSSet *subCategoriesSet; // Back-end to subCategories
-
-@end
-
-@interface Category (CoreDataGeneratedAccessors)
-
-- (void)addSubCategoriesObject:(Category *)value;
-- (void)removeSubCategoriesObject:(Category *)value;
-- (void)addSubCategories:(NSSet *)values;
-- (void)removeSubCategories:(NSSet *)values;
 
 @end
 
@@ -40,6 +30,7 @@
 @dynamic urlPath;
 @dynamic uid;
 
+@dynamic order, orderNumber;
 @dynamic depth, depthNumber;
 @dynamic itemCount, itemCountNumber;
 @dynamic hasClassifieds, hasClassifiedsNumber;
@@ -48,8 +39,7 @@
 @dynamic hasLegalNotice, hasLegalNoticeNumber;
 @dynamic legalNotice;
 
-@synthesize subCategories;
-@dynamic subCategoriesSet;
+@dynamic subCategories;
 @dynamic parentCategory;
 
 #pragma mark - Initialisation
@@ -57,7 +47,6 @@
 +(id)createInstance {
 	Category *category = (Category*)[NSEntityDescription insertNewObjectForEntityForName:@"Category"
 																  inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
-	
 	return category;
 }
 
@@ -109,6 +98,10 @@
 		exit(-1);  // Fail
 	}
 	
+	
+	NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+	[mutableFetchResults sortUsingDescriptors:@[sorter]];
+	
 	return mutableFetchResults;
 }
 
@@ -121,6 +114,10 @@
 }
 
 #pragma mark - Setters
+
+-(void)setOrder:(NSInteger)order {
+	self.orderNumber = @(order);
+}
 
 -(void)setDepth:(NSInteger)depth {
 	self.depthNumber = @(depth);
@@ -144,6 +141,10 @@
 
 #pragma mark - Getters
 
+-(NSInteger)order {
+	return [self.orderNumber integerValue];
+}
+
 -(NSInteger)depth {
 	return [self.depthNumber integerValue];
 }
@@ -164,34 +165,9 @@
 	return [self.isRestrictedNumber boolValue];
 }
 
-#pragma mark - Subcategory Management
-
--(void)loadCategories {
-	NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"uid" ascending:YES];
-	[self.subCategories setArray:[self.subCategoriesSet sortedArrayUsingDescriptors:@[sorter]]];
+-(NSArray *)getOrderedSubCategories {
+	NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+	return [self.subCategories sortedArrayUsingDescriptors:@[sorter]].mutableCopy;
 }
-
--(void)addSubCategory:(Category*)category {
-	if (!subCategories) {
-		[self loadCategories];
-	}
-	
-	[self.subCategories addObject:category];
-	[self addSubCategoriesObject:category];
-	
-	[DATABASE_MANAGER saveContext];
-}
-
--(void)removeSubcategory:(Category*)category {
-	if (!subCategories) {
-		[self loadCategories];
-	}
-	
-	[self.subCategories removeObject:category];
-	[self removeSubCategoriesObject:category];
-	
-	[DATABASE_MANAGER saveContext];
-}
-
 
 @end
