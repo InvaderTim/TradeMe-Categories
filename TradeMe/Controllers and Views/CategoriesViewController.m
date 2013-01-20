@@ -43,6 +43,10 @@
 	[self.tableView reloadData];
 }
 
+-(void)displaySearch {
+	
+}
+
 #pragma mark - View Callbacks
 
 - (void)viewDidLoad {
@@ -57,6 +61,14 @@
 	}
 	
 	[self reload];
+}
+
+#pragma mark - UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+	if (buttonIndex != alertView.cancelButtonIndex) {
+		[self displaySearch];
+	}
 }
 
 #pragma mark - Table Functions
@@ -96,6 +108,7 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	self.selectedCategory = nil;
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	if (indexPath.row >= 0 && indexPath.row < self.data.count) {
@@ -105,7 +118,18 @@
 			id viewController = [[[self class] alloc] initWithCategory:category];
 			[self.navigationController pushViewController:viewController animated:YES];
 		} else {
-			// Open Search Screen
+			self.selectedCategory = category;
+			
+			if (category.isRestricted) {
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
+																	message:@"This category contains adult material. You must be 18 or older to view these items.\n\nIf you are not over 18 or do not wish to view such material then click the cancel button."
+																   delegate:self
+														  cancelButtonTitle:@"Cancel"
+														  otherButtonTitles:@"Continue", nil];
+				[alertView show];
+			} else {
+				[self displaySearch];
+			}
 		}
 	}
 }
