@@ -13,7 +13,7 @@
 
 @optional
 
-- (void)syncCompleted:(NSArray*)categories;
+- (void)syncCompleted;
 - (void)searchCompleted:(NSArray*)results;
 
 @end

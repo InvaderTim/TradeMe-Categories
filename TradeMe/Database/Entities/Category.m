@@ -167,7 +167,8 @@
 
 -(NSArray *)getOrderedSubCategories {
 	NSSortDescriptor *sorter = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
-	return [self.subCategories sortedArrayUsingDescriptors:@[sorter]].mutableCopy;
+	NSArray *orderedCategories = [self.subCategories sortedArrayUsingDescriptors:@[sorter]];
+	return orderedCategories;
 }
 
 @end

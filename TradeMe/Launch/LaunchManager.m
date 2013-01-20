@@ -30,7 +30,10 @@ static LaunchManager *instance;
 }
 
 -(id)getLaunchController {
-	return [[CategoriesViewController alloc] init];
+	CategoriesViewController *viewController = [[CategoriesViewController alloc] initWithCategory:nil];
+	[NETWORKING_MANAGER.delegates addObject:viewController];
+	[NETWORKING_MANAGER startSync];
+	return viewController;
 }
 
 #pragma mark - Load Functions

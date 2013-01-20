@@ -10,17 +10,16 @@
 
 @implementation CategoriesViewController
 
--(id)init {
+-(id)initWithCategory:(Category*)category {
 	if (self = [super initWithNibName:@"View" bundle:nil]) {
-		self.data = [Category getAll];
-		[NETWORKING_MANAGER.delegates addObject:self];
+		self.parentCategory = category;
+		[self reload];
 	}
 	return self;
 }
 
-- (void)syncCompleted:(NSArray *)categories {
+- (void)syncCompleted {
 	self.loadingView.hidden = YES;
-	[self.data setArray:categories];
 	[self reload];
 }
 
@@ -35,6 +34,11 @@
 }
 
 -(void)reload {
+	if (self.parentCategory) {
+		self.data = [self.parentCategory getOrderedSubCategories].mutableCopy;
+	} else {
+		self.data = [Category getAll];
+	}
 	[self stripCategories];
 	[self.tableView reloadData];
 }
@@ -44,14 +48,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = @"Browse";
+	self.title = self.parentCategory ? self.parentCategory.name : @"Browse";
 }
 
 - (void)viewWillAppear:(BOOL)animated {
 	if (!self.data || self.data.count == 0) {
 		self.loadingView.hidden = NO;
 	}
-	[NETWORKING_MANAGER startSync];
 	
 	[self reload];
 }
@@ -95,6 +98,16 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
+	if (indexPath.row >= 0 && indexPath.row < self.data.count) {
+		Category *category = self.data[indexPath.row];
+		
+		if (category.subCategories.count > 0) {
+			id viewController = [[[self class] alloc] initWithCategory:category];
+			[self.navigationController pushViewController:viewController animated:YES];
+		} else {
+			// Open Search Screen
+		}
+	}
 }
 
 @end

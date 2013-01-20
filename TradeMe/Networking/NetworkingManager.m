@@ -30,10 +30,10 @@ static NetworkingManager *instance;
     return self;
 }
 
-- (void)notifySyncDelegates:(NSArray*)data {
+- (void)notifySyncDelegates {
 	for (id delegate in self.delegates) {
-		if ([delegate respondsToSelector:@selector(syncCompleted:)]) {
-			[delegate syncCompleted:data];
+		if ([delegate respondsToSelector:@selector(syncCompleted)]) {
+			[delegate syncCompleted];
 		}
 	}
 }
@@ -90,7 +90,7 @@ static NetworkingManager *instance;
 		}
 	}
 	
-	[self notifySyncDelegates:exisitingCategories];
+	[self notifySyncDelegates];
 	[DATABASE_MANAGER saveContext];
 }
 

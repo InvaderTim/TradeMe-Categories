@@ -10,8 +10,11 @@
 
 @interface CategoriesViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NetworkingDelegate>
 
+@property (nonatomic, retain) Category *parentCategory;
 @property (nonatomic, retain) NSMutableArray *data;
 @property (nonatomic, retain) IBOutlet UIView *loadingView;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
+
+-(id)initWithCategory:(Category*)category;
 
 @end
