@@ -52,7 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	self.title = self.parentCategory ? self.parentCategory.name : @"Browse";
+	self.title = self.parentCategory ? self.parentCategory.name : NSLocalizedString(@"BROWSE", @"");
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -121,11 +121,11 @@
 			self.selectedCategory = category;
 			
 			if (category.isRestricted) {
-				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Warning"
-																	message:@"This category contains adult material. You must be 18 or older to view these items.\n\nIf you are not over 18 or do not wish to view such material then click the cancel button."
+				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"RESTRICTED_TITLE", @"")
+																	message:NSLocalizedString(@"RESTRICTED_BODY", @"")
 																   delegate:self
-														  cancelButtonTitle:@"Cancel"
-														  otherButtonTitles:@"Continue", nil];
+														  cancelButtonTitle:NSLocalizedString(@"CANCEL", @"")
+														  otherButtonTitles:NSLocalizedString(@"CONTINUE", @""), nil];
 				[alertView show];
 			} else {
 				[self displaySearch];

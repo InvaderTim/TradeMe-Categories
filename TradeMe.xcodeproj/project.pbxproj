@@ -44,6 +44,7 @@
 		9097533616AB123E009DF8A6 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097533516AB123E009DF8A6 /* SystemConfiguration.framework */; };
 		9097537B16AB18A9009DF8A6 /* libAFNetworking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097537A16AB18A1009DF8A6 /* libAFNetworking.a */; };
 		909753C416AB1D03009DF8A6 /* TradeMeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 909753C316AB1D03009DF8A6 /* TradeMeClient.m */; };
+		909753E016AC2494009DF8A6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 909753DF16AC2494009DF8A6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +117,7 @@
 		909753C216AB1D03009DF8A6 /* TradeMeClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeMeClient.h; sourceTree = "<group>"; };
 		909753C316AB1D03009DF8A6 /* TradeMeClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeMeClient.m; sourceTree = "<group>"; };
 		909753D016ABC655009DF8A6 /* Delegates.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Delegates.h; sourceTree = "<group>"; };
+		909753DF16AC2494009DF8A6 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -262,6 +264,7 @@
 				9097521F16AA9864009DF8A6 /* Entities.h */,
 				9097522416AA9C66009DF8A6 /* Constants.h */,
 				909753D016ABC655009DF8A6 /* Delegates.h */,
+				909753DF16AC2494009DF8A6 /* Localizable.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -429,6 +432,7 @@
 				909752BD16AAE969009DF8A6 /* barbutton@2x.png in Resources */,
 				909752BE16AAE969009DF8A6 /* barbuttonpressed.png in Resources */,
 				909752BF16AAE969009DF8A6 /* barbuttonpressed@2x.png in Resources */,
+				909753E016AC2494009DF8A6 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
