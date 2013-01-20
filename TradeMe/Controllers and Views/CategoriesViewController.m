@@ -67,6 +67,7 @@
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	if (buttonIndex != alertView.cancelButtonIndex) {
+		[[NSUserDefaults standardUserDefaults] setValue:@YES forKey:@"Over18"];
 		[self displaySearch];
 	}
 }
@@ -120,7 +121,7 @@
 		} else {
 			self.selectedCategory = category;
 			
-			if (category.isRestricted) {
+			if (category.isRestricted && [[NSUserDefaults standardUserDefaults] valueForKey:@"Over18"] != @YES) {
 				UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"RESTRICTED_TITLE", @"")
 																	message:NSLocalizedString(@"RESTRICTED_BODY", @"")
 																   delegate:self
