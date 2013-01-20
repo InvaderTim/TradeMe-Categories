@@ -32,9 +32,6 @@
 	if (data[@"HasClassifieds"] && data[@"HasClassifieds"] != [NSNull null]) {
 		self.hasClassifieds = [data[@"HasClassifieds"] boolValue];
 	}
-	if (data[@"HasLegalNotice"] && data[@"HasLegalNotice"] != [NSNull null]) {
-		self.hasLegalNotice = [data[@"HasLegalNotice"] boolValue];
-	}
 	if (data[@"IsRestricted"] && data[@"IsRestricted"] != [NSNull null]) {
 		self.isRestricted = [data[@"IsRestricted"] boolValue];
 	}

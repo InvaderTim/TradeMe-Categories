@@ -3,10 +3,8 @@
     <entity name="Category" representedClassName="Category" syncable="YES">
         <attribute name="depthNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="hasClassifiedsNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
-        <attribute name="hasLegalNoticeNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="isRestrictedNumber" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="itemCountNumber" optional="YES" attributeType="Integer 64" syncable="YES"/>
-        <attribute name="legalNotice" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="orderNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
@@ -15,6 +13,6 @@
         <relationship name="subCategories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentCategory" inverseEntity="Category" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Category" positionX="160" positionY="192" width="128" height="223"/>
+        <element name="Category" positionX="160" positionY="192" width="128" height="193"/>
     </elements>
 </model>

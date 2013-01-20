@@ -18,19 +18,16 @@
 @property NSInteger depth; // Front-end to depthNumber
 @property NSInteger itemCount; // Front-end to itemCountNumber
 @property BOOL hasClassifieds; // Front-end to hasClassifiedsNumber
-@property BOOL hasLegalNotice; // Front-end to hasLegalNoticeNumber
 @property BOOL isRestricted; // Front-end to isRestrictedNumber
 
 @property (nonatomic, retain) NSSet *subCategories;
 
-@property (nonatomic, retain) NSString * legalNotice;
 @property (nonatomic, retain) Category * parentCategory;
 
 +(id)createInstance;
 +(id)getCategoryWithUID:(NSString*)uid;
 +(NSMutableArray*)getAll;
 
--(void)getLegalNotice;
 -(NSArray*)getOrderedSubCategories;
 
 @end

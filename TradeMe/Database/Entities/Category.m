@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSNumber *depthNumber; // Back-end to depth
 @property (nonatomic, retain) NSNumber *itemCountNumber; // Back-end to itemCount
 @property (nonatomic, retain) NSNumber *hasClassifiedsNumber; // Back-end to hasClassifieds
-@property (nonatomic, retain) NSNumber *hasLegalNoticeNumber; // Back-end to hasLegaLNotice
 
 @property (nonatomic, retain) NSNumber *isRestrictedNumber; // Back-end to isRestricted
 
@@ -35,9 +34,6 @@
 @dynamic itemCount, itemCountNumber;
 @dynamic hasClassifieds, hasClassifiedsNumber;
 @dynamic isRestricted, isRestrictedNumber;
-
-@dynamic hasLegalNotice, hasLegalNoticeNumber;
-@dynamic legalNotice;
 
 @dynamic subCategories;
 @dynamic parentCategory;
@@ -105,14 +101,6 @@
 	return mutableFetchResults;
 }
 
-#pragma mark - Networking
-
--(void)getLegalNotice {
-	if ([self.hasLegalNoticeNumber boolValue]) {
-		// TODO: Implement Networking	
-	}
-}
-
 #pragma mark - Setters
 
 -(void)setOrder:(NSInteger)order {
@@ -130,11 +118,6 @@
 -(void)setHasClassifieds:(BOOL)hasClassifieds {
 	self.hasClassifiedsNumber = @(hasClassifieds);
 }
-
--(void)setHasLegalNotice:(BOOL)hasLegalNotice {
-	self.hasLegalNoticeNumber = @(hasLegalNotice);
-}
-
 -(void)setIsRestricted:(BOOL)isRestricted {
 	self.isRestrictedNumber = @(isRestricted);
 }
@@ -155,10 +138,6 @@
 
 -(BOOL)hasClassifieds {
 	return [self.hasClassifiedsNumber boolValue];
-}
-
--(BOOL)hasLegalNotice {
-	return [self.hasLegalNoticeNumber boolValue];
 }
 
 -(BOOL)isRestricted {
