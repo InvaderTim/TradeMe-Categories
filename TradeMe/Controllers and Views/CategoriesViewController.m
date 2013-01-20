@@ -11,7 +11,7 @@
 @implementation CategoriesViewController
 
 -(id)initWithCategory:(Category*)category {
-	if (self = [super initWithNibName:@"View" bundle:nil]) {
+	if (self = [super initWithNibName:@"CategoriesView" bundle:nil]) {
 		self.parentCategory = category;
 		[self reload];
 	}

@@ -21,7 +21,7 @@
 		9097521B16AA571B009DF8A6 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097521A16AA571B009DF8A6 /* CoreData.framework */; };
 		9097521E16AA8080009DF8A6 /* Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097521D16AA8080009DF8A6 /* Category.m */; };
 		9097522316AA995A009DF8A6 /* Category+Networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097522216AA995A009DF8A6 /* Category+Networking.m */; };
-		9097525216AAB515009DF8A6 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9097525116AAB515009DF8A6 /* View.xib */; };
+		9097525216AAB515009DF8A6 /* CategoriesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9097525116AAB515009DF8A6 /* CategoriesView.xib */; };
 		9097528916AAC5F8009DF8A6 /* LaunchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9097528816AAC5F8009DF8A6 /* LaunchManager.m */; };
 		9097529716AAC7DF009DF8A6 /* searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9097528F16AAC7DF009DF8A6 /* searchbg@2x.png */; };
 		9097529816AAC7DF009DF8A6 /* searchfield@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9097529016AAC7DF009DF8A6 /* searchfield@2x.png */; };
@@ -89,7 +89,7 @@
 		9097522116AA995A009DF8A6 /* Category+Networking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Category+Networking.h"; sourceTree = "<group>"; };
 		9097522216AA995A009DF8A6 /* Category+Networking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Category+Networking.m"; sourceTree = "<group>"; };
 		9097522416AA9C66009DF8A6 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		9097525116AAB515009DF8A6 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		9097525116AAB515009DF8A6 /* CategoriesView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoriesView.xib; sourceTree = "<group>"; };
 		9097528716AAC5F8009DF8A6 /* LaunchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchManager.h; sourceTree = "<group>"; };
 		9097528816AAC5F8009DF8A6 /* LaunchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchManager.m; sourceTree = "<group>"; };
 		9097528F16AAC7DF009DF8A6 /* searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "searchbg@2x.png"; sourceTree = "<group>"; };
@@ -186,7 +186,7 @@
 			children = (
 				90848FD316AA55B1005F4893 /* CategoriesViewController.h */,
 				90848FD416AA55B1005F4893 /* CategoriesViewController.m */,
-				9097525116AAB515009DF8A6 /* View.xib */,
+				9097525116AAB515009DF8A6 /* CategoriesView.xib */,
 			);
 			path = "Controllers and Views";
 			sourceTree = "<group>";
@@ -412,7 +412,7 @@
 				9084900516AA55B1005F4893 /* Default-568h@2x.png in Resources */,
 				9084900616AA55B1005F4893 /* Default.png in Resources */,
 				9084900716AA55B1005F4893 /* Default@2x.png in Resources */,
-				9097525216AAB515009DF8A6 /* View.xib in Resources */,
+				9097525216AAB515009DF8A6 /* CategoriesView.xib in Resources */,
 				9097529716AAC7DF009DF8A6 /* searchbg@2x.png in Resources */,
 				9097529816AAC7DF009DF8A6 /* searchfield@2x.png in Resources */,
 				9097529916AAC7DF009DF8A6 /* searchicon@2x.png in Resources */,
