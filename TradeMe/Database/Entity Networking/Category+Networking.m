@@ -48,10 +48,14 @@
 				if (subCategoryData[@"Number"] && subCategoryData[@"Number"] != [NSNull null]) {
 					NSString *uid = subCategoryData[@"Number"];
 					
-					Category *subcategory = [Category getCategoryWithUID:uid];
+					Category *subcategory = nil;
+					for (Category *potentialSubcategory in self.subCategories) {
+						if ([potentialSubcategory.uid isEqualToString:uid]) {
+							subcategory = potentialSubcategory;
+						}
+					}
 					if (!subcategory) {
 						subcategory = [Category createInstance];
-						[DATABASE_MANAGER saveContext];
 					}
 					
 					subcategory.parentCategory = self;
@@ -61,7 +65,6 @@
 			}
 		}
 	}
-	[DATABASE_MANAGER saveContext];
 }
 
 @end

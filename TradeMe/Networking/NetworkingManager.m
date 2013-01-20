@@ -31,34 +31,47 @@ static NetworkingManager *instance;
 }
 
 - (void)startSync {
+	__block NSArray *existingCategories = [Category getAll];
+	
 	[[TradeMeClient getInstance] getPath:@"Categories.json"
 							  parameters:nil
 								 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-									 if (responseObject && ![responseObject isEqual:[NSNull null]]) {
-										 id categories = responseObject[@"Subcategories"];
-										 
-										 if (categories && categories != [NSNull null]) {
-											 for (NSDictionary *categoryData in categories) {
-												 if (categoryData[@"Number"] && categoryData[@"Number"] != [NSNull null]) {
-													 NSString *uid = categoryData[@"Number"];
-													 
-													 Category *category = [Category getCategoryWithUID:uid];
-													 if (!category) {
-														 category = [Category createInstance];
-														 [DATABASE_MANAGER saveContext];
-													 }
-													 
-													 category.depth = 0;
-													 [category setWithNetworkingData:categoryData];
-												 }
-											 }
-										 }
-									 }
-									 [DATABASE_MANAGER saveContext];
+									[self handleCategories:responseObject exisitingCategories:existingCategories];
 								 }
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 									
 								 }];
+	
+	[DATABASE_MANAGER saveContext];
+}
+
+- (void)handleCategories:(id)responseObject exisitingCategories:(NSArray*)exisitingCategories {
+	if (responseObject && ![responseObject isEqual:[NSNull null]]) {
+		id categories = responseObject[@"Subcategories"];
+		
+		if (categories && categories != [NSNull null]) {
+			for (NSDictionary *categoryData in categories) {
+				if (categoryData[@"Number"] && categoryData[@"Number"] != [NSNull null]) {
+					NSString *uid = categoryData[@"Number"];
+					
+					/* Capture any exisiting category */
+					Category *category = nil;
+					for (Category *potentialCategory in exisitingCategories) {
+						if ([potentialCategory.uid isEqualToString:uid]) {
+							category = potentialCategory;
+						}
+					}
+					if (!category) {
+						category = [Category createInstance];
+					}
+					
+					/* Set category with data recursively */
+					category.depth = 0;
+					[category setWithNetworkingData:categoryData];
+				}
+			}
+		}
+	}
 }
 
 @end
