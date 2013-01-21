@@ -14,6 +14,7 @@
 
 +(NetworkingManager *)getInstance;
 
+-(dispatch_queue_t)getBackgroundQueue;
 -(void)startSync;
 
 @end

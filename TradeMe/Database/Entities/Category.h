@@ -24,7 +24,7 @@
 
 @property (nonatomic, retain) Category * parentCategory;
 
-+(id)createInstance;
++(Category*)createInstance;
 +(id)getCategoryWithUID:(NSString*)uid;
 +(NSMutableArray*)getAll;
 

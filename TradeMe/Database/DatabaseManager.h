@@ -11,15 +11,15 @@
 
 @interface DatabaseManager : NSObject
 
-@property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *mainContext;
+@property (readonly, strong, nonatomic) NSManagedObjectContext *backgroundContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
 + (DatabaseManager *)getInstance;
 
-- (void)deleteObjectInContext:(NSManagedObject*)object;
-
-- (void)saveContext;
+- (void)saveMainContext;
+- (void)saveBackgroundContext;
 - (NSURL *)applicationDocumentsDirectory;
 
 @end

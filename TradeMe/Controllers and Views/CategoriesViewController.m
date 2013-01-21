@@ -21,6 +21,7 @@
 
 - (void)syncCompleted {
 	self.loadingView.hidden = YES;
+	self.data = [Category getAll];
 	[self reload];
 }
 
@@ -37,8 +38,6 @@
 -(void)reload {
 	if (self.parentCategory) {
 		self.data = [self.parentCategory getOrderedSubCategories].mutableCopy;
-	} else {
-		self.data = [Category getAll];
 	}
 	[self stripCategories];
 	[self.tableView reloadData];

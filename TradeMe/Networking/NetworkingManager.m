@@ -30,7 +30,11 @@ static NetworkingManager *instance;
     return self;
 }
 
-- (void)notifySyncDelegates {
+- (dispatch_queue_t)getBackgroundQueue {
+	return dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+}
+
+- (void)notifySyncDelegatesSuccess {
 	for (id delegate in self.delegates) {
 		if ([delegate respondsToSelector:@selector(syncCompleted)]) {
 			[delegate syncCompleted];
@@ -54,7 +58,9 @@ static NetworkingManager *instance;
 	[[TradeMeClient getInstance] getPath:@"Categories.json"
 							  parameters:nil
 								 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-									[self handleCategories:responseObject exisitingCategories:existingCategories];
+									 [DATABASE_MANAGER.backgroundContext performBlock:^{
+										[self handleCategories:responseObject exisitingCategories:existingCategories];
+									 }];
 								 }
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 									
@@ -90,8 +96,9 @@ static NetworkingManager *instance;
 		}
 	}
 	
-	[self notifySyncDelegates];
-	[DATABASE_MANAGER saveContext];
+	[DATABASE_MANAGER.mainContext performBlock:^{
+		[self notifySyncDelegatesSuccess];
+	}];
 }
 
 @end

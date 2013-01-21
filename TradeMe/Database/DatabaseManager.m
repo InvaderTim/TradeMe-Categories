@@ -11,7 +11,8 @@
 
 @implementation DatabaseManager
 
-@synthesize managedObjectContext = __managedObjectContext;
+@synthesize mainContext = __mainContext;
+@synthesize backgroundContext = __backgroundContext;
 @synthesize managedObjectModel = __managedObjectModel;
 @synthesize persistentStoreCoordinator = __persistentStoreCoordinator;
 
@@ -46,13 +47,9 @@ static DatabaseManager *instance;
 
 #pragma mark - Core Data stack
 
-- (void)deleteObjectInContext:(NSManagedObject*)object {
-    [__managedObjectContext deleteObject:object];
-}
-
-- (void)saveContext {
+- (void)saveMainContext {
     NSError *error = nil;
-    NSManagedObjectContext *managedObjectContext = self.managedObjectContext;
+    NSManagedObjectContext *managedObjectContext = self.mainContext;
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
 			[self handleError:error];
@@ -60,17 +57,40 @@ static DatabaseManager *instance;
     }
 }
 
-- (NSManagedObjectContext *)managedObjectContext {
-    if (__managedObjectContext != nil) {
-        return __managedObjectContext;
+- (void)saveBackgroundContext {
+    NSError *error = nil;
+    NSManagedObjectContext *managedObjectContext = self.backgroundContext;
+    if (managedObjectContext != nil) {
+        if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
+			[self handleError:error];
+        }
+    }
+}
+
+- (NSManagedObjectContext *)mainContext {
+    if (__mainContext != nil) {
+        return __mainContext;
     }
     
     NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
     if (coordinator != nil) {
-        __managedObjectContext = [[NSManagedObjectContext alloc] init];
-        [__managedObjectContext setPersistentStoreCoordinator:coordinator];
+        __mainContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSMainQueueConcurrencyType];
+        [__mainContext setPersistentStoreCoordinator:coordinator];
     }
-    return __managedObjectContext;
+    return __mainContext;
+}
+
+- (NSManagedObjectContext *)backgroundContext {
+    if (__backgroundContext != nil) {
+        return __backgroundContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+    if (coordinator != nil) {
+        __backgroundContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:NSPrivateQueueConcurrencyType];
+        [__backgroundContext setParentContext:self.mainContext];
+    }
+    return __backgroundContext;
 }
 
 - (NSManagedObjectModel *)managedObjectModel {

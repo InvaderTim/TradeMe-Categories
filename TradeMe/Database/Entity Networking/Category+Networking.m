@@ -51,18 +51,22 @@
 							subcategory = potentialSubcategory;
 						}
 					}
+					
 					if (!subcategory) {
 						subcategory = [Category createInstance];
 					}
 					
+					/* Set category with data recursively */
 					[self addSubCategoriesObject:subcategory];
 					subcategory.parentCategory = self;
 					subcategory.depth = self.depth + 1;
+					
 					[subcategory setWithNetworkingData:subCategoryData];
 				}
 			}
 		}
 	}
+	[DATABASE_MANAGER saveBackgroundContext];
 }
 
 @end

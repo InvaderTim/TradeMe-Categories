@@ -69,18 +69,20 @@
 		[insertedRows addObject:[NSIndexPath indexPathForRow:[newResults indexOfObject:listing] inSection:0]];
 	}
 	
-	
-	[self.refreshControl endRefreshing];
-	self.results = newResults;
-	if (self.currentPage == 1) {
-		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
-	} else {
-		[self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationNone];
-	}
+	dispatch_async(dispatch_get_main_queue(), ^{
+		self.results = newResults;
+		if (self.currentPage == 1) {
+			[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+		} else {
+			[self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationNone];
+		}
+		[self.refreshControl endRefreshing];
+	});
 }
 
 -(void)performSearch {
 	self.currentPage++;
+	__block dispatch_queue_t backgroundQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	[[TradeMeClient getInstance] getPath:@"Search/General.json"
 							  parameters:@{
 											 @"category" : self.selectedCategory.uid,
@@ -89,22 +91,24 @@
 											 @"rows" : @25
 										 }
 								 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-									 if (responseObject && ![responseObject isEqual:[NSNull null]]) {
-										 NSDictionary *response = responseObject;
-										 
-										 self.lastSearchTerms = self.searchBar.text;
-										 
-										 NSNumber *totalCount = response[@"TotalCount"];
-										 if (totalCount && ![totalCount isEqual:[NSNull null]]) {
-											 self.totalResults = [totalCount integerValue];
-											 self.totalPages = ceilf((float)self.totalResults/25.0f);
+									 dispatch_async(backgroundQueue,^{
+										 if (responseObject && ![responseObject isEqual:[NSNull null]]) {
+											 NSDictionary *response = responseObject;
+											 
+											 self.lastSearchTerms = self.searchBar.text;
+											 
+											 NSNumber *totalCount = response[@"TotalCount"];
+											 if (totalCount && ![totalCount isEqual:[NSNull null]]) {
+												 self.totalResults = [totalCount integerValue];
+												 self.totalPages = ceilf((float)self.totalResults/25.0f);
+											 }
+											 
+											 NSArray *list = response[@"List"];
+											 if (list && ![list isEqual:[NSNull null]]) {
+												 [self handleSearchResults:list];
+											 }
 										 }
-										 
-										 NSArray *list = response[@"List"];
-										 if (list && ![list isEqual:[NSNull null]]) {
-											 [self handleSearchResults:list];
-										 }
-									 }
+									 });
 								 }
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 									 [self.refreshControl endRefreshing];

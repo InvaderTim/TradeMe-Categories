@@ -40,9 +40,9 @@
 
 #pragma mark - Initialisation
 
-+(id)createInstance {
++(Category*)createInstance {
 	Category *category = (Category*)[NSEntityDescription insertNewObjectForEntityForName:@"Category"
-																  inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
+																  inManagedObjectContext:DATABASE_MANAGER.mainContext];
 	return category;
 }
 
@@ -51,7 +51,7 @@
 +(id)getCategoryWithUID:(NSString*)uid {
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category"
-											  inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
+											  inManagedObjectContext:DATABASE_MANAGER.mainContext];
 	
 	[request setEntity:entity];
 	[request setPredicate:[NSPredicate predicateWithFormat:@"uid == %@",uid]];
@@ -59,7 +59,7 @@
 	
 	// Execute the fetch -- create a mutable copy of the result.
 	NSError *error = nil;
-	NSMutableArray *mutableFetchResults = [[DATABASE_MANAGER.managedObjectContext executeFetchRequest:request
+	NSMutableArray *mutableFetchResults = [[DATABASE_MANAGER.mainContext executeFetchRequest:request
 																								error:&error] mutableCopy];
 	if (mutableFetchResults == nil) {
 		// Handle the error.
@@ -78,7 +78,7 @@
 +(NSMutableArray*)getAll {
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Category"
-											  inManagedObjectContext:DATABASE_MANAGER.managedObjectContext];
+											  inManagedObjectContext:DATABASE_MANAGER.mainContext];
 	
 	[request setEntity:entity];
 	[request setPredicate:[NSPredicate predicateWithFormat:@"depthNumber == 0"]];
@@ -86,7 +86,7 @@
 	
 	// Execute the fetch -- create a mutable copy of the result.
 	NSError *error = nil;
-	NSMutableArray *mutableFetchResults = [[DATABASE_MANAGER.managedObjectContext executeFetchRequest:request
+	NSMutableArray *mutableFetchResults = [[DATABASE_MANAGER.mainContext executeFetchRequest:request
 																								error:&error] mutableCopy];
 	if (mutableFetchResults == nil) {
 		// Handle the error.
