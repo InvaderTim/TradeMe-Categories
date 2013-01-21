@@ -172,7 +172,9 @@
 	label.font = [UIFont systemFontOfSize:12.0f];
 	label.textColor = [UIColor blackColor];
 	label.textAlignment = NSTextAlignmentCenter;
-	if (self.searchBar.text && self.searchBar.text.length > 0) {
+	if (self.totalResults == 0) {
+		label.text = @"Loading...";
+	} else if (self.searchBar.text && self.searchBar.text.length > 0) {
 		label.text = [NSString stringWithFormat:@"%d %@ in %@ for \"%@\"",self.totalResults,
 																		(self.totalResults == 1) ? @"result" : @"results",
 																		self.selectedCategory.name,
