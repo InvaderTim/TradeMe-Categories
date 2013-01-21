@@ -61,23 +61,29 @@
 		newResults = [NSMutableArray array];
 	}
 	
+	NSMutableArray *insertedRows = [NSMutableArray array];
 	for (id listingObject in results) {
 		Listing *listing = [[Listing alloc] init];
 		[listing setWithNetworkingData:listingObject];
 		[newResults addObject:listing];
+		[insertedRows addObject:[NSIndexPath indexPathForRow:[newResults indexOfObject:listing] inSection:0]];
 	}
 	
 	
 	[self.refreshControl endRefreshing];
 	self.results = newResults;
-	[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+	[self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationNone];
+	if (self.currentPage == 1) {
+		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+	}
 }
 
 -(void)performSearch {
+	self.currentPage++;
 	[[TradeMeClient getInstance] getPath:@"Search/General.json"
 							  parameters:@{
 											 @"category" : self.selectedCategory.uid,
-											 @"page" : @(self.loadedPagesCount+1),
+											 @"page" : @(self.currentPage),
 											 @"search_string" : self.searchBar.text,
 											 @"rows" : @25
 										 }
@@ -86,11 +92,12 @@
 										 NSDictionary *response = responseObject;
 										 
 										 self.lastSearchTerms = self.searchBar.text;
+										 
 										 NSNumber *totalCount = response[@"TotalCount"];
 										 if (totalCount && ![totalCount isEqual:[NSNull null]]) {
-											self.totalResults = [totalCount integerValue];
+											 self.totalResults = [totalCount integerValue];
+											 self.totalPages = ceilf((float)self.totalResults/25.0f);
 										 }
-										 self.totalPages = ceilf((float)self.totalResults/25.0f);
 										 
 										 NSArray *list = response[@"List"];
 										 if (list && ![list isEqual:[NSNull null]]) {
@@ -121,7 +128,7 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
 	self.searchShouldReplace = YES;
-	self.loadedPagesCount = 0;
+	self.currentPage = 0;
 	[self performSearch];
 	[self.searchBar resignFirstResponder];
 }
@@ -130,7 +137,7 @@
 
 -(void)dropViewDidBeginRefreshing:(ODRefreshControl *)control {
 	self.searchShouldReplace = YES;
-	self.loadedPagesCount = 0;
+	self.currentPage = 0;
 	[self performSearch];
 }
 
@@ -147,7 +154,7 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	return self.results.count;
+	return self.results.count+1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -181,27 +188,64 @@
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-	static NSString *cellIdentifier = @"ListingCell";
-	ListingTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-	
-	if (indexPath.row >= 0 && indexPath.row < self.results.count) {
-		Listing *listing = self.results[indexPath.row];
+	if (indexPath.row == self.results.count) {
+		static NSString *cellIdentifer = @"PagenationCell";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifer];
 		
 		if (!cell) {
-			cell = [[ListingTableCell alloc] initWithReuseIdentifier:cellIdentifier];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifer];
+			
+			UILabel *label = [[UILabel alloc] initWithFrame:(CGRect){{0,0},{320,75}}];
+			label.textAlignment = NSTextAlignmentCenter;
+			label.font = [UIFont systemFontOfSize:19.0f];
+			label.tag = 1;
+			[cell addSubview:label];
 		}
 		
-		[cell reload:listing];
+		NSInteger lastPageSize = self.totalResults % 25;
+		NSInteger nextPageSize = (self.currentPage == self.totalPages-1) ? lastPageSize : 25;
 		
+		UILabel *label = (UILabel*)[cell viewWithTag:1];
+		label.textColor = [UIColor blackColor];
+		if (nextPageSize == 0) {
+			label.text = @"No More Results";
+		} else {
+			label.text = [NSString stringWithFormat:@"Show Next %d...",nextPageSize];	
+		}
+		
+		return cell;
 	} else {
-		[[NSException exceptionWithName:@"Tim has a dumb!" reason:@"Code does the brokeing!" userInfo:nil] raise];
+		static NSString *cellIdentifier = @"ListingCell";
+		ListingTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+		
+		if (indexPath.row >= 0 && indexPath.row < self.results.count) {
+			Listing *listing = self.results[indexPath.row];
+			
+			if (!cell) {
+				cell = [[ListingTableCell alloc] initWithReuseIdentifier:cellIdentifier];
+			}
+			
+			[cell reload:listing];
+			
+		} else {
+			[[NSException exceptionWithName:@"Tim has a dumb!" reason:@"Code does the brokeing!" userInfo:nil] raise];
+		}
+		
+		return cell;
 	}
 	
-	return cell;
+	return nil;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+	
+	if (indexPath.row == self.results.count) {
+		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+		UILabel *label = (UILabel*)[cell viewWithTag:1];
+		label.textColor = [UIColor lightGrayColor];
+		[self performSearch];
+	}
 }
 
 @end

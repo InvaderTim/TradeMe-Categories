@@ -17,7 +17,7 @@
 @property (nonatomic, retain) NSString *lastSearchTerms;
 @property (nonatomic, retain) UISearchBar *searchBar;
 
-@property (nonatomic, assign) NSInteger loadedPagesCount;
+@property (nonatomic, assign) NSInteger currentPage;
 @property (nonatomic, assign) NSInteger totalPages;
 @property (nonatomic, assign) NSInteger totalResults;
 
