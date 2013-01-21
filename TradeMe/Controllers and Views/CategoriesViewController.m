@@ -7,6 +7,7 @@
 //
 
 #import "CategoriesViewController.h"
+#import "ListingsViewController.h"
 
 @implementation CategoriesViewController
 
@@ -44,7 +45,8 @@
 }
 
 -(void)displaySearch {
-	
+	ListingsViewController *viewController = [[ListingsViewController alloc] initWithCategory:self.selectedCategory];
+	[self.navigationController pushViewController:viewController animated:YES];
 }
 
 -(void)browse {
@@ -58,6 +60,9 @@
     [super viewDidLoad];
 	
 	self.title = self.parentCategory ? self.parentCategory.name : NSLocalizedString(@"BROWSE", @"");
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] init];
+	backButton.title = @"Back";
+	[self.navigationItem setBackBarButtonItem:backButton];
 	
 	if (self.parentCategory) {
 		UIBarButtonItem *browseButton = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"BROWSE", @"")

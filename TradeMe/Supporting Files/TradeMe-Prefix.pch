@@ -18,6 +18,7 @@
 
 	// Included Libraries
 	#import "AFNetworking.h"
+	#import "ODRefreshControl.h"
 
 	// Singletons
 	#import "DatabaseManager.h"
