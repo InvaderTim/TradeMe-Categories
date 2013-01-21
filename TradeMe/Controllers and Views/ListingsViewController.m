@@ -72,9 +72,10 @@
 	
 	[self.refreshControl endRefreshing];
 	self.results = newResults;
-	[self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationNone];
 	if (self.currentPage == 1) {
 		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationNone];
+	} else {
+		[self.tableView insertRowsAtIndexPaths:insertedRows withRowAnimation:UITableViewRowAnimationNone];
 	}
 }
 
