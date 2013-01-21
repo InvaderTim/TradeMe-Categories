@@ -219,13 +219,13 @@
 		NSInteger nextPageSize = (self.currentPage == self.totalPages-1) ? lastPageSize : 25;
 		
 		UILabel *label = (UILabel*)[cell viewWithTag:1];
-		label.textColor = [UIColor blackColor];
+		label.textColor = [UIColor lightGrayColor];
 		if (self.errorMode) {
-			label.textColor = [UIColor lightGrayColor];
 			label.text = @"Reload";
-		} else if (nextPageSize == 0) {
+		} else if (self.currentPage == self.totalPages) {
 			label.text = @"No More Results";
 		} else {
+			label.textColor = [UIColor blackColor];
 			label.text = [NSString stringWithFormat:@"Show Next %d...",nextPageSize];	
 		}
 		
