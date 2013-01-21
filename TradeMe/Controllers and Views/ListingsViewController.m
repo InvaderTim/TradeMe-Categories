@@ -234,18 +234,13 @@
 		static NSString *cellIdentifier = @"ListingCell";
 		ListingTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 		
-		if (indexPath.row >= 0 && indexPath.row < self.results.count) {
-			Listing *listing = self.results[indexPath.row];
-			
-			if (!cell) {
-				cell = [[ListingTableCell alloc] initWithReuseIdentifier:cellIdentifier];
-			}
-			
-			[cell reload:listing];
-			
-		} else {
-			[[NSException exceptionWithName:@"Tim has a dumb!" reason:@"Code does the brokeing!" userInfo:nil] raise];
+		Listing *listing = self.results[indexPath.row];
+		
+		if (!cell) {
+			cell = [[ListingTableCell alloc] initWithReuseIdentifier:cellIdentifier];
 		}
+		
+		[cell reload:listing];
 		
 		return cell;
 	}

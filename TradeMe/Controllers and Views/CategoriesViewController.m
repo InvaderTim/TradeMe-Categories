@@ -118,23 +118,18 @@
 	static NSString *cellIdentifier = @"CategoryCell";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 	
-	if (indexPath.row >= 0 && indexPath.row < self.data.count) {
-		Category *category = self.data[indexPath.row];
-		
-		if (!cell) {
-			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-			cell.selectionStyle = UITableViewCellSelectionStyleGray;
-		}
-		
-		cell.textLabel.text = category.name;
-		if (category.subCategories.count > 0) {
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-		} else {
-			cell.accessoryType = UITableViewCellAccessoryNone;
-		}
-		
+	Category *category = self.data[indexPath.row];
+	
+	if (!cell) {
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+		cell.selectionStyle = UITableViewCellSelectionStyleGray;
+	}
+	
+	cell.textLabel.text = category.name;
+	if (category.subCategories.count > 0) {
+		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 	} else {
-		[[NSException exceptionWithName:@"Tim has a dumb!" reason:@"Code does the brokeing!" userInfo:nil] raise];
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
 	return cell;
