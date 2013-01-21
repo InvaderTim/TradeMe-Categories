@@ -53,6 +53,12 @@
 	[self.searchBar resignFirstResponder];
 }
 
+-(void)freshSearch {
+	self.searchShouldReplace = YES;
+	self.currentPage = 0;
+	[self performSearch];
+}
+
 -(void)handleSearchResults:(NSArray *)results {
 	NSMutableArray *newResults = self.results;
 	
@@ -91,6 +97,7 @@
 											 @"rows" : @25
 										 }
 								 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+									 self.errorMode = NO;
 									 dispatch_async(backgroundQueue,^{
 										 if (responseObject && ![responseObject isEqual:[NSNull null]]) {
 											 NSDictionary *response = responseObject;
@@ -111,9 +118,10 @@
 									 });
 								 }
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+									 self.errorMode = YES;
 									 [self.refreshControl endRefreshing];
-									 
-									 
+									 [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0]
+												   withRowAnimation:UITableViewRowAnimationNone];
 								 }];
 }
 
@@ -132,18 +140,14 @@
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-	self.searchShouldReplace = YES;
-	self.currentPage = 0;
-	[self performSearch];
+	[self freshSearch];
 	[self.searchBar resignFirstResponder];
 }
 
 #pragma mark - Refresh View Delegate
 
 -(void)dropViewDidBeginRefreshing:(ODRefreshControl *)control {
-	self.searchShouldReplace = YES;
-	self.currentPage = 0;
-	[self performSearch];
+	[self freshSearch];
 }
 
 #pragma mark - Table Functions
@@ -176,7 +180,9 @@
 	label.font = [UIFont systemFontOfSize:12.0f];
 	label.textColor = [UIColor blackColor];
 	label.textAlignment = NSTextAlignmentCenter;
-	if (self.totalResults == 0) {
+	if (self.errorMode) {
+		label.text = @"Error Loading Content";
+	} else if (self.totalResults == 0) {
 		label.text = @"Loading...";
 	} else if (self.searchBar.text && self.searchBar.text.length > 0) {
 		label.text = [NSString stringWithFormat:@"%d %@ in %@ for \"%@\"",self.totalResults,
@@ -214,7 +220,10 @@
 		
 		UILabel *label = (UILabel*)[cell viewWithTag:1];
 		label.textColor = [UIColor blackColor];
-		if (nextPageSize == 0) {
+		if (self.errorMode) {
+			label.textColor = [UIColor lightGrayColor];
+			label.text = @"Reload";
+		} else if (nextPageSize == 0) {
 			label.text = @"No More Results";
 		} else {
 			label.text = [NSString stringWithFormat:@"Show Next %d...",nextPageSize];	
@@ -248,10 +257,14 @@
 	[tableView deselectRowAtIndexPath:indexPath animated:YES];
 	
 	if (indexPath.row == self.results.count) {
-		UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-		UILabel *label = (UILabel*)[cell viewWithTag:1];
-		label.textColor = [UIColor lightGrayColor];
-		[self performSearch];
+		if (self.errorMode) {
+			[self freshSearch];
+		} else {
+			UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+			UILabel *label = (UILabel*)[cell viewWithTag:1];
+			label.textColor = [UIColor lightGrayColor];
+			[self performSearch];
+		}
 	}
 }
 

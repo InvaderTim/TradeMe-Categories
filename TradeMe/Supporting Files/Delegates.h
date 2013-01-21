@@ -14,7 +14,7 @@
 @optional
 
 - (void)syncCompleted;
-- (void)searchCompleted:(NSArray*)results;
+- (void)syncFailed;
 
 @end
 

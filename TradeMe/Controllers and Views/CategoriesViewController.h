@@ -16,8 +16,11 @@
 @property (nonatomic, retain) NSMutableArray *data;
 
 @property (nonatomic, retain) IBOutlet UIView *loadingView;
+@property (nonatomic, retain) IBOutlet UIView *errorView;
+@property (nonatomic, retain) IBOutlet UIButton *reloadButton;
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 -(id)initWithCategory:(Category*)category;
+-(IBAction)reloadPressed;
 
 @end

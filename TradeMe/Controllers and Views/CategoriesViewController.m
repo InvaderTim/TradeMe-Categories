@@ -25,6 +25,11 @@
 	[self reload];
 }
 
+- (void)syncFailed {
+	self.loadingView.hidden = YES;
+	self.errorView.hidden = NO;
+}
+
 - (void)stripCategories {
 	for (Category *category in self.data.mutableCopy) {
 		if ([category.name isEqualToString:@"Trade Me Motors"] ||
@@ -43,6 +48,13 @@
 	[self.tableView reloadData];
 }
 
+-(void)reloadPressed {
+	self.errorView.hidden = YES;
+	self.loadingView.hidden = NO;
+	
+	[NETWORKING_MANAGER startSync];
+}
+
 -(void)displaySearch {
 	ListingsViewController *viewController = [[ListingsViewController alloc] initWithCategory:self.selectedCategory];
 	[self.navigationController pushViewController:viewController animated:YES];
@@ -57,6 +69,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[self.reloadButton setBackgroundImage:[LAUNCH_MANAGER getButtonImagePressed:NO] forState:UIControlStateNormal];
+	[self.reloadButton setBackgroundImage:[LAUNCH_MANAGER getButtonImagePressed:YES] forState:UIControlStateHighlighted];
 	
 	self.title = self.parentCategory ? self.parentCategory.name : NSLocalizedString(@"BROWSE", @"");
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] init];

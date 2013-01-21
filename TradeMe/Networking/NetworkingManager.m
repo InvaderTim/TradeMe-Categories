@@ -42,10 +42,10 @@ static NetworkingManager *instance;
 	}
 }
 
-- (void)notifySearchDelegates:(NSArray*)data {
+- (void)notifySyncDelegatesFailure {
 	for (id delegate in self.delegates) {
-		if ([delegate respondsToSelector:@selector(searchCompleted:)]) {
-			[delegate searchCompleted:data];
+		if ([delegate respondsToSelector:@selector(syncFailed)]) {
+			[delegate syncFailed];
 		}
 	}
 }
@@ -54,7 +54,6 @@ static NetworkingManager *instance;
 
 - (void)startSync {
 	__block NSMutableArray *existingCategories = [Category getAll];
-	
 	[[TradeMeClient getInstance] getPath:@"Categories.json"
 							  parameters:nil
 								 success:^(AFHTTPRequestOperation *operation, id responseObject) {
@@ -63,7 +62,7 @@ static NetworkingManager *instance;
 									 }];
 								 }
 								 failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-									
+									 [self notifySyncDelegatesFailure];
 								 }];
 }
 

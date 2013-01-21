@@ -15,3 +15,4 @@
 // Contextual
 	"RESTRICTED_TITLE" = "Warning";
 	"RESTRICTED_BODY" = "This category contains adult material. You must be 18 or older to view these items.\n\nIf you are not over 18 or do not wish to view such material then click the cancel button.";
+	"CONNECTION_ISSUE" = "It appears there was a connection issue. Please check your internet connection and try again.";

@@ -12,6 +12,7 @@
 
 +(LaunchManager *)getInstance;
 
+-(UIImage*)getButtonImagePressed:(BOOL)selected;
 -(void)preload;
 -(id)getLaunchController;
 

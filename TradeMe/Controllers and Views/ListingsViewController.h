@@ -22,6 +22,7 @@
 @property (nonatomic, assign) NSInteger totalResults;
 
 @property (nonatomic, assign) BOOL searchShouldReplace;
+@property (nonatomic, assign) BOOL errorMode;
 
 -(id)initWithCategory:(Category*)selectedCategory;
 

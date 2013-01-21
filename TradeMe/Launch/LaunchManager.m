@@ -23,6 +23,18 @@ static LaunchManager *instance;
 	return instance;
 }
 
+-(UIImage*)getButtonImagePressed:(BOOL)selected {
+	UIImage *image = nil;
+	UIEdgeInsets normalInsets = {0, 5, 0, 5};
+	if (selected) {
+		image = [[UIImage imageNamed:@"barbuttonpressed"] resizableImageWithCapInsets:normalInsets];
+	} else {
+		image = [[UIImage imageNamed:@"barbutton"] resizableImageWithCapInsets:normalInsets];
+	}
+	
+	return image;
+}
+
 #pragma mark - Launch Functions
 
 -(void)preload {
@@ -45,16 +57,12 @@ static LaunchManager *instance;
 		
 	
 	UIEdgeInsets backInsets = {0, 22, 0, 5};
-	UIEdgeInsets normalInsets = {0, 5, 0, 5};
 	UIEdgeInsets fieldInsets = {0, 10, 0, 10};
 	
 	UIImage *navigationBackground = [UIImage imageNamed:@"titlebg"];
 	
 	UIImage *backBackground = [[UIImage imageNamed:@"backbutton"] resizableImageWithCapInsets:backInsets];
 	UIImage *backBackgroundPressed = [[UIImage imageNamed:@"backbuttonpressed"] resizableImageWithCapInsets:backInsets];
-	
-	UIImage *normalBackground = [[UIImage imageNamed:@"barbutton"] resizableImageWithCapInsets:normalInsets];
-	UIImage *normalBackgroundPressed = [[UIImage imageNamed:@"barbuttonpressed"] resizableImageWithCapInsets:normalInsets];
 	
 	UIImage *searchBackground = [UIImage imageNamed:@"searchbg"];
 	UIImage *fieldBackground = [[UIImage imageNamed:@"searchfield"] resizableImageWithCapInsets:fieldInsets];
@@ -85,10 +93,10 @@ static LaunchManager *instance;
 	[[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-3, 0)
 														 forBarMetrics:UIBarMetricsDefault];
 	
-	[[UIBarButtonItem appearance] setBackgroundImage:normalBackground
+	[[UIBarButtonItem appearance] setBackgroundImage:[self getButtonImagePressed:NO]
 											forState:UIControlStateNormal
 										  barMetrics:UIBarMetricsDefault];
-	[[UIBarButtonItem appearance] setBackgroundImage:normalBackgroundPressed
+	[[UIBarButtonItem appearance] setBackgroundImage:[self getButtonImagePressed:YES]
 											forState:UIControlStateHighlighted
 										  barMetrics:UIBarMetricsDefault];
 	[[UIBarButtonItem appearance] setTitleTextAttributes:buttonTextAttributes forState:UIControlStateNormal];
